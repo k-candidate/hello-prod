@@ -8,6 +8,14 @@ spec:
     app: hello-prod
   ports:
     - protocol: TCP
-      port: 80
+      port: 8080
       targetPort: 80
       nodePort: 31070
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: keda-add-ons-http-interceptor-proxy
+spec:
+  type: ExternalName
+  externalName: keda-add-ons-http-interceptor-proxy.keda.svc.cluster.local
